@@ -130,6 +130,7 @@ import com.android.settings.wifi.p2p.WifiP2pSettings;
 import com.android.settingslib.drawer.DashboardCategory;
 import com.android.settingslib.drawer.SettingsDrawerActivity;
 import com.android.settingslib.drawer.Tile;
+import com.blissroms.blissify.Blissify;
 
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -351,6 +352,7 @@ public class SettingsActivity extends SettingsDrawerActivity
             TestingSettings.class.getName(),
             WifiAPITest.class.getName(),
             WifiInfo.class.getName(),
+            Blissify.class.getName(),
             MasterClear.class.getName(),
             NightDisplaySettings.class.getName(),
     };
