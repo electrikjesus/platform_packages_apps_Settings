@@ -1002,6 +1002,38 @@ public class SettingsActivity extends SettingsDrawerActivity
      */
     private Fragment switchToFragment(String fragmentName, Bundle args, boolean validate,
             boolean addToBackStack, int titleResId, CharSequence title, boolean withTransition) {
+        if (LTE_4G_FRAGMENT.equals(fragmentName)) {
+            Intent newIntent = new Intent("android.settings.SETTINGS");
+            newIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(newIntent);
+            finish();
+            return null;
+        }
+
+        if (PROFILEMGR_MAIN_FRAGMENT.equals(fragmentName)) {
+            Intent profilemgrIntent = new Intent();
+            profilemgrIntent.setAction("com.codeaurora.STARTPROFILE");
+            profilemgrIntent.setPackage("com.android.profile");
+            startActivity(profilemgrIntent);
+            finish();
+            return null;
+        }
+        if (MOBILENETWORK_FRAGMENT.equals(fragmentName)) {
+            Intent mobileNetworkIntent = new Intent();
+            mobileNetworkIntent.setAction("android.settings.DATA_ROAMING_SETTINGS");
+            mobileNetworkIntent.setPackage("com.qualcomm.qti.networksetting");
+            startActivity(mobileNetworkIntent);
+            finish();
+            return null;
+        }
+
+
+        if (SYSTEM_UPDATE.equals(fragmentName)) {
+            SystemUpdateHandle ();
+            return null;
+        }
+
+
         if (validate && !isValidFragment(fragmentName)) {
             throw new IllegalArgumentException("Invalid fragment for this activity: "
                     + fragmentName);
